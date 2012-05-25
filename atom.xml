@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[CilaCila]]></title>
-  <link href="http://karmaq.github.com/atom.xml" rel="self"/>
-  <link href="http://karmaq.github.com/"/>
-  <updated>2012-05-25T23:20:40+08:00</updated>
-  <id>http://karmaq.github.com/</id>
+  <link href="http://karmaQ.github.com/atom.xml" rel="self"/>
+  <link href="http://karmaQ.github.com/"/>
+  <updated>2012-05-25T23:45:37+08:00</updated>
+  <id>http://karmaQ.github.com/</id>
   <author>
     <name><![CDATA[Karma]]></name>
     
@@ -15,10 +15,40 @@
   
   <entry>
     <title type="html"><![CDATA[Hello Github]]></title>
-    <link href="http://karmaq.github.com/blog/2012/05/25/hello-github/"/>
+    <link href="http://karmaQ.github.com/blog/2012/05/25/hello-github/"/>
     <updated>2012-05-25T23:16:00+08:00</updated>
-    <id>http://karmaq.github.com/blog/2012/05/25/hello-github</id>
+    <id>http://karmaQ.github.com/blog/2012/05/25/hello-github</id>
     <content type="html"><![CDATA[<p>这是一篇测试的文章。</p>
+
+<h4>首先来测试一下Markdows的语法</h4>
+
+<blockquote><pre><code>这里是一段引用。
+</code></pre></blockquote>
+
+<h4>最近想要学习的东西</h4>
+
+<ul>
+<li>Ruby on Rails</li>
+<li>Rspec</li>
+<li>日语</li>
+<li>英语 XD</li>
+</ul>
+
+
+<hr />
+
+<h4>嘛 当然要测试一下代码的排版了</h4>
+
+<p>This is a code block.</p>
+
+<pre><code>class CleanRoom
+    def a_useful_method(x);x*2;end
+end 
+</code></pre>
+
+<p>Use the <code>a_useful_method()</code> function.</p>
+
+<p>唉？居然是这样的么，语法还是很不熟悉啊，关于代码应该还会有更好的<em>解决方案</em>吧，明天再弄吧。</p>
 ]]></content>
   </entry>
   

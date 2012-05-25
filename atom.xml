@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[CilaCila]]></title>
+  <link href="http://karmaq.github.com/atom.xml" rel="self"/>
+  <link href="http://karmaq.github.com/"/>
+  <updated>2012-05-25T23:20:40+08:00</updated>
+  <id>http://karmaq.github.com/</id>
+  <author>
+    <name><![CDATA[Karma]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Github]]></title>
+    <link href="http://karmaq.github.com/blog/2012/05/25/hello-github/"/>
+    <updated>2012-05-25T23:16:00+08:00</updated>
+    <id>http://karmaq.github.com/blog/2012/05/25/hello-github</id>
+    <content type="html"><![CDATA[<p>这是一篇测试的文章。</p>
+]]></content>
+  </entry>
+  
+</feed>

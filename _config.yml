@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
+url: http://karmaq.github.com
+title: CilaCila
 subtitle: A blogging framework for hackers.
-author: Your Name
+author: Karma
 simple_search: http://google.com/search
 description:
 

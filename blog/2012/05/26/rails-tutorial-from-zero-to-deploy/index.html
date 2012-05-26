@@ -25,9 +25,10 @@
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="CilaCila" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <!-- font-family: 'Knewave', cursive; -->
+<link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+<!-- font-family: 'Cantata One', serif; -->
+<link href='http://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css'>
 
   
 
@@ -35,10 +36,12 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">CilaCila</a></h1>
-  
-    <h2>A blogging framework for hackers.</h2>
-  
+  <h1>
+      <a href="/">CilaCila</a>
+      
+        <span>A blogging framework for hackers.</span>
+      
+  </h1>
 </hgroup>
 
 </header>
@@ -55,7 +58,7 @@
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
+  <li><a href="/">Home</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
@@ -85,6 +88,7 @@
 
 <time datetime="2012-05-26T00:01:00+08:00" pubdate data-updated="true">May 26<span>th</span>, 2012</time>
         
+        
       </p>
     
   </header>
@@ -106,17 +110,19 @@
 
 <h4>3、安装Homebrew</h4>
 
-<p>这里先推荐的一个东西homebrew,Mac OS X 下新的软件包管理工具，比较方便的，之后就可以使用<code>$ brew install unrar</code>的命令安装包了，安装方法：</p>
+<p>这里先推荐的一个东西<a href="http://mxcl.github.com/homebrew/">homebrew</a>,Mac OS X 下新的软件包管理工具，比较方便的，之后就可以使用类似<code>$ brew install unrar</code>的命令管理包了，安装方法：</p>
 
 <pre><code>/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 </code></pre>
 
-<p>也可以按照<a href="http://blog.jjgod.org/2009/12/21/homebrew-package-management/">这篇文章</a>中的做法进行安装</p>
+<p>也可以按照<a href="http://blog.jjgod.org/2009/12/21/homebrew-package-management/">这篇文章</a>中的做法进行安装:</p>
 
-<blockquote><p>首先，Homebrew 的原则是“No sudo”，也就是说，既然 Mac OS X (client 版本) 绝大部分情况下都是归你这个有管理员权限的用户，为什么在自己的 /usr/local 下安装程序还需要 sudo 呢？所以，首先：</p>
+<p>首先，Homebrew 的原则是“No sudo”，也就是说，既然 Mac OS X (client 版本) 绝大部分情况下都是归你这个有管理员权限的用户，为什么在自己的 /usr/local 下安装程序还需要 sudo 呢？所以，首先：</p>
 
-<p>sudo chown -R `whoami` /usr/local
-然后可以正式开始安装，我推荐的安装方式是先用 git-osx-installer 装上 git，然后用 git 安装：</p>
+<pre><code>$ sudo chown -R \`whoami` /usr/local
+</code></pre>
+
+<p>然后可以正式开始安装，我推荐的安装方式是先用 git-osx-installer 装上 git，然后用 git 安装：</p>
 
 <pre><code>$ cd /usr/local
 $ git init
@@ -126,7 +132,7 @@ $ git pull origin master
 
 <p>这么做的实际作用是把你的 /usr/local 目录变成了一个本地 git 仓库，只不过这个仓库只跟踪跟 Homebrew 相关的更新，并不影响任何其他软件的安装。</p>
 
-<p>这样安装会在 /usr/local 下创建 Library 这个目录，然后在 /usr/local/bin 中加入 brew 这个 ruby 脚本。</p></blockquote>
+<p>这样安装会在 /usr/local 下创建 Library 这个目录，然后在 /usr/local/bin 中加入 brew 这个 ruby 脚本。</p>
 
 <h4>4、安装 RVM</h4>
 
@@ -174,21 +180,17 @@ $ [sudo] gem sources -a http://ruby.taobao.org
 
 <p>一些常用的快捷键</p>
 
-<blockquote><p>快如闪电查找文件：Ctrl + P</p>
+<ul>
+<li>快如闪电查找文件：Ctrl + P</li>
+<li>方法查找或行定位(用在Ctrl + P后)：@ / # /</li>
+<li>快捷命令板：Ctrl + Shift + P</li>
+<li>控制台：Ctrl + \</li>
+<li>包控制：Package Control</li>
+<li>快速代码书写：Zen Coding</li>
+<li>对齐(Ctrl + Alt + A)：Alignment</li>
+<li>无干扰编辑：Shift + F11</li>
+</ul>
 
-<p>方法查找或行定位(用在Ctrl + P后)：@ / # /</p>
-
-<p>快捷命令板：Ctrl + Shift + P</p>
-
-<p>控制台：Ctrl + \</p>
-
-<p>包控制：Package Control</p>
-
-<p>快速代码书写：Zen Coding</p>
-
-<p>对齐(Ctrl + Alt + A)：Alignment</p>
-
-<p>无干扰编辑：Shift + F11</p></blockquote>
 
 <hr />
 
@@ -308,7 +310,7 @@ $ heroku keys:add
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/on/'>On</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+    <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/rubyonrails/'>RubyonRails</a>
   
 </span>
 
@@ -337,7 +339,7 @@ $ heroku keys:add
 
 <aside class="sidebar">
   
-    <section>
+    <section class="first odd">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -365,7 +367,7 @@ $ heroku keys:add
   </div>
   <footer role="contentinfo"><p>
   Copyright &copy; 2012 - Karma -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> and <a href="https://github.com/gluttony/object-octopress-theme">Object</a></span>
 </p>
 
 </footer>

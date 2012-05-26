@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[CilaCila]]></title>
-  <link href="http://karmaQ.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Ruby | CilaCila]]></title>
+  <link href="http://karmaQ.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://karmaQ.github.com/"/>
   <updated>2012-05-26T09:00:11+08:00</updated>
   <id>http://karmaQ.github.com/</id>
@@ -139,9 +139,9 @@ $ [sudo] gem sources -a http://ruby.taobao.org
 <pre><code>$ git config --global core.editor "subl -w"
 </code></pre>
 
-<p>the paramater &#8220;-w&#8221; means return until the file was closed.
-the paramater &#8220;-s &#8221; means set the gedit mode to &#8220;standalone&#8221;
-如果你使用的是textmate 就把subl -w换成mate -w,同理gvim对应 &#8220;gvim -f&#8221;,MacVim对应&#8221;mvim -f&#8221;，而gedit则对应&#8221;gedit -s&#8221;。</p>
+<p>the paramater "-w" means return until the file was closed.
+the paramater "-s " means set the gedit mode to "standalone"
+如果你使用的是textmate 就把subl -w换成mate -w,同理gvim对应 "gvim -f",MacVim对应"mvim -f"，而gedit则对应"gedit -s"。</p>
 
 <p>然后初始化一下下</p>
 
@@ -209,45 +209,6 @@ $ heroku keys:add
 <h2>尾声</h2>
 
 <p>环境总算是弄好了，准备开发了。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello Github]]></title>
-    <link href="http://karmaQ.github.com/blog/2012/05/25/hello-github/"/>
-    <updated>2012-05-25T23:16:00+08:00</updated>
-    <id>http://karmaQ.github.com/blog/2012/05/25/hello-github</id>
-    <content type="html"><![CDATA[<p>这是一篇测试的文章。</p>
-
-<h4>首先来测试一下Markdows的语法</h4>
-
-<blockquote><pre><code>这里是一段引用。
-</code></pre></blockquote>
-
-<h4>最近想要学习的东西</h4>
-
-<ul>
-<li>Ruby on Rails</li>
-<li>Rspec</li>
-<li>日语</li>
-<li>英语 XD</li>
-</ul>
-
-
-<hr />
-
-<h4>嘛 当然要测试一下代码的排版了</h4>
-
-<p>This is a code block.</p>
-
-<pre><code>class CleanRoom
-    def a_useful_method(x);x*2;end
-end 
-</code></pre>
-
-<p>Use the <code>a_useful_method()</code> function.</p>
-
-<p>唉？居然是这样的么，语法还是很不熟悉啊，关于代码应该还会有更好的<em>解决方案</em>吧，明天再弄吧。</p>
 ]]></content>
   </entry>
   

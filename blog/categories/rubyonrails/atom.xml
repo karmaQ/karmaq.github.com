@@ -4,7 +4,7 @@
   <title><![CDATA[Category: RubyonRails | CilaCila]]></title>
   <link href="http://karmaQ.github.com/blog/categories/rubyonrails/atom.xml" rel="self"/>
   <link href="http://karmaQ.github.com/"/>
-  <updated>2012-05-29T13:01:34+08:00</updated>
+  <updated>2012-05-29T13:23:29+08:00</updated>
   <id>http://karmaQ.github.com/</id>
   <author>
     <name><![CDATA[Karma]]></name>
@@ -117,9 +117,9 @@ bundle install      # 根据Gemfile安装环境到当前的系统
   
   <entry>
     <title type="html"><![CDATA[[Rails Tutorial] 自动化测试环境]]></title>
-    <link href="http://karmaQ.github.com/blog/2012/05/27/rails-tutorial-our-first-tests/"/>
+    <link href="http://karmaQ.github.com/blog/2012/05/27/our-first-tests/"/>
     <updated>2012-05-27T16:22:00+08:00</updated>
-    <id>http://karmaQ.github.com/blog/2012/05/27/rails-tutorial-our-first-tests</id>
+    <id>http://karmaQ.github.com/blog/2012/05/27/our-first-tests</id>
     <content type="html"><![CDATA[<p>今天的这篇主要参考的Ruby-China的<a href="http://ruby-china.org/topics/2990">这篇帖子</a>，基本是照搬…Orz</p>
 
 <h4>1、 新建项目(不启用Test::Unit，不执行Bundle)</h4>
@@ -477,9 +477,9 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
   
   <entry>
     <title type="html"><![CDATA[[Rails Tutorial] 从零开始搭建 Ruby on Rails 开发环境]]></title>
-    <link href="http://karmaQ.github.com/blog/2012/05/26/rails-tutorial-from-zero-to-deploy/"/>
+    <link href="http://karmaQ.github.com/blog/2012/05/26/from-zero-to-deploy/"/>
     <updated>2012-05-26T00:01:00+08:00</updated>
-    <id>http://karmaQ.github.com/blog/2012/05/26/rails-tutorial-from-zero-to-deploy</id>
+    <id>http://karmaQ.github.com/blog/2012/05/26/from-zero-to-deploy</id>
     <content type="html"><![CDATA[<p>去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyer开始新的生活。</p>
 
 <hr />

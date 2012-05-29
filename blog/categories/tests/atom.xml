@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tests | CilaCila]]></title>
   <link href="http://karmaQ.github.com/blog/categories/tests/atom.xml" rel="self"/>
   <link href="http://karmaQ.github.com/"/>
-  <updated>2012-05-29T13:01:34+08:00</updated>
+  <updated>2012-05-29T13:23:29+08:00</updated>
   <id>http://karmaQ.github.com/</id>
   <author>
     <name><![CDATA[Karma]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[[Rails Tutorial] 自动化测试环境]]></title>
-    <link href="http://karmaQ.github.com/blog/2012/05/27/rails-tutorial-our-first-tests/"/>
+    <link href="http://karmaQ.github.com/blog/2012/05/27/our-first-tests/"/>
     <updated>2012-05-27T16:22:00+08:00</updated>
-    <id>http://karmaQ.github.com/blog/2012/05/27/rails-tutorial-our-first-tests</id>
+    <id>http://karmaQ.github.com/blog/2012/05/27/our-first-tests</id>
     <content type="html"><![CDATA[<p>今天的这篇主要参考的Ruby-China的<a href="http://ruby-china.org/topics/2990">这篇帖子</a>，基本是照搬…Orz</p>
 
 <h4>1、 新建项目(不启用Test::Unit，不执行Bundle)</h4>

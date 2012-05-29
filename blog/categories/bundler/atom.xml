@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bundler | CilaCila]]></title>
   <link href="http://karmaQ.github.com/blog/categories/bundler/atom.xml" rel="self"/>
   <link href="http://karmaQ.github.com/"/>
-  <updated>2012-05-29T11:52:13+08:00</updated>
+  <updated>2012-05-29T12:54:18+08:00</updated>
   <id>http://karmaQ.github.com/</id>
   <author>
     <name><![CDATA[Karma]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Bundler and Gems]]></title>
+    <title type="html"><![CDATA[[Rails Tutorial]Bundler and Gems]]></title>
     <link href="http://karmaQ.github.com/blog/2012/05/28/bundler-and-gems/"/>
     <updated>2012-05-28T12:41:00+08:00</updated>
     <id>http://karmaQ.github.com/blog/2012/05/28/bundler-and-gems</id>
@@ -111,7 +111,7 @@ bundle install      # 根据Gemfile安装环境到当前的系统
 
 <hr />
 
-<p>关于 RubyGems 我觉得没理由不看<a href="http://docs.rubygems.org/read/chapter/1">官方文档</a>的吧，各个方面都特变详细，有时间好好看看.</p>
+<p>关于 RubyGems 我觉得没理由不看<a href="http://docs.rubygems.org/read/chapter/1">官方文档</a>的吧，各个方面都特别详细，有时间好好看看.</p>
 ]]></content>
   </entry>
   

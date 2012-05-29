@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | CilaCila]]></title>
   <link href="http://karmaQ.github.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://karmaQ.github.com/"/>
-  <updated>2012-05-26T13:05:47+08:00</updated>
+  <updated>2012-05-29T11:52:13+08:00</updated>
   <id>http://karmaQ.github.com/</id>
   <author>
     <name><![CDATA[Karma]]></name>
@@ -183,6 +183,8 @@ $ git push origin master
 </code></pre>
 
 <p>把生成的密钥粘贴在Github的设置中。</p>
+
+<p>补充一本书 <a href="http://www-cs-students.stanford.edu/%7Eblynn/gitmagic/intl/zh_cn/index.html">Git Magic</a></p>
 
 <h4>4、部署在Heroku</h4>
 

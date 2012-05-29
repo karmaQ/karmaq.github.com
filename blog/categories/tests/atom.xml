@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tests | CilaCila]]></title>
+  <link href="http://karmaQ.github.com/blog/categories/tests/atom.xml" rel="self"/>
+  <link href="http://karmaQ.github.com/"/>
+  <updated>2012-05-29T11:52:13+08:00</updated>
+  <id>http://karmaQ.github.com/</id>
+  <author>
+    <name><![CDATA[Karma]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Rails Tutorial] 自动化测试环境]]></title>
+    <link href="http://karmaQ.github.com/blog/2012/05/27/rails-tutorial-our-first-tests/"/>
+    <updated>2012-05-27T16:22:00+08:00</updated>
+    <id>http://karmaQ.github.com/blog/2012/05/27/rails-tutorial-our-first-tests</id>
+    <content type="html"><![CDATA[<p>今天的这篇主要参考的Ruby-China的<a href="http://ruby-china.org/topics/2990">这篇帖子</a>，基本是照搬…Orz</p>
+
+<h4>1、 新建项目(不启用Test::Unit，不执行Bundle)</h4>
+
+<pre><code>$ rails new appname --skip-test-unit --skip-bundle
+</code></pre>
+
+<h4>2、 修改 Gemfile ,并 bundle install</h4>
+
+<p>OS X 要安装 growl-notify ，是<a href="http://growl.info/extras.php">这里</a>还是<a href="http://soft.macx.cn/Growl133-3189.htm">这里</a>，就看你了。
+liveload的<a href="http://help.livereload.com/kb/general-use/browser-extensions">浏览器扩展</a></p>
+
+<pre><code>require 'rbconfig'
+HOST_OS = RbConfig::CONFIG['host_os']
+source 'http://rubygems.org'
+
+gem 'rails', '3.2.3'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'
+  gem 'coffee-rails', '~&gt; 3.2.1'
+  gem 'uglifier', '&gt;= 1.0.3'
+end
+
+gem 'jquery-rails'
+gem 'rspec-rails' ,:group =&gt; [:development,:test]
+
+# jquery-ui
+# gem 'jquery-ui-rails'
+
+# bootstrap
+# gem 'anjlab-bootstrap-rails', :require =&gt; 'bootstrap-rails',:git =&gt; 'git://github.com/anjlab/bootstrap-rails.git'
+
+if HOST_OS =~ /linux/i
+  gem 'therubyracer', '&gt;= 0.8.2'
+end
+case HOST_OS
+when /darwin/i
+    gem 'rb-fsevent', :group =&gt; :development
+    gem 'growl', :group =&gt; :development
+    gem 'guard-pow', :group =&gt; :development
+when /linux/i
+    gem 'libnotify', :group =&gt; :development
+    gem 'rb-inotify', :group =&gt; :development
+when /mswin|windows/i
+    gem 'rb-fchange', :group =&gt; :development
+    gem 'win32console', :group =&gt; :development
+    gem 'rb-notifu', :group =&gt; :development
+end
+
+
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug19', :require =&gt; 'ruby-debug'
+
+group :test do
+    # Pretty printed test output
+    gem 'turn', :require =&gt; false
+    gem 'factory_girl_rails' , "~&gt; 1.1.0" ,:require =&gt; false
+    gem 'database_cleaner', "&gt;= 0.6.7"
+    # gem 'mongoid-rspec', "&gt;= 1.4.4"
+    gem "capybara","&gt;= 1.1.1"
+    gem "launchy", "&gt;= 2.0.5"
+    gem 'guard-spork'
+    gem 'spork', '~&gt; 0.9.0'
+    gem "guard-rspec"
+    gem 'guard-livereload'
+    gem 'guard-bundler'
+end
+</code></pre>
+
+<h4>3、 初始化 Rspec，Guard， Spork</h4>
+
+<pre><code>$ rails g rspec:install
+$ bin/guard init rspec &amp;&amp; bin/guard init spork
+</code></pre>
+
+<p>修改 Guardfile</p>
+
+<pre><code># A sample Guardfile
+# More info at https://github.com/guard/guard#readme
+guard 'livereload' do
+  watch(%r{app/.+\.(erb|haml)})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{(public/|app/assets).+\.(css|js|html)})
+  watch(%r{(app/assets/.+\.css)\.s[ac]ss}) { |m| m[1] }
+  watch(%r{(app/assets/.+\.js)\.coffee}) { |m| m[1] }
+  watch(%r{config/locales/.+\.yml})
+end
+
+guard 'pow' do
+  watch('.powrc')
+  watch('.powenv')
+  watch('.rvmrc')
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch('config/application.rb')
+  watch('config/environment.rb')
+  watch(%r{^config/environments/.*\.rb$})
+  watch(%r{^config/initializers/.*\.rb$})
+  watch(%r{^config/settings(\.local)?\.yml$})
+end
+
+guard 'spork', :cucumber_env =&gt; { 'RAILS_ENV' =&gt; 'test' }, :rspec_env =&gt; { 'RAILS_ENV' =&gt; 'test' } do
+  watch('config/application.rb')
+  watch('config/environment.rb')
+  watch(%r{^config/environments/.+\.rb$})
+  watch(%r{^config/initializers/.+\.rb$})
+  watch('spec/spec_helper.rb')
+end
+
+guard 'rspec', :version =&gt; 2 ,:cli =&gt; "--drb",:notification =&gt; true do
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch('spec/spec_helper.rb')  { "spec/" }
+
+  # Rails example
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+  watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
+  watch(%r{^spec/support/(.+)\.rb$})                  { "spec/" }
+  watch('spec/spec_helper.rb')                        { "spec/" }
+  watch('config/routes.rb')                           { "spec/routing" }
+  watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  # Capybara request specs
+  watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
+end
+</code></pre>
+
+<h4>4、 修改 spechelper</h4>
+
+<pre><code>require 'rubygems'
+require 'spork'
+
+Spork.prefork do
+  # Loading more in this block will cause your tests to run faster. However, 
+  # if you change any configuration or code from libraries loaded here, you'll
+  # need to restart spork for it take effect.
+  # This file is copied to spec/ when you run 'rails generate rspec:install'
+  ENV["RAILS_ENV"] ||= 'test'
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
+  require 'rspec/autorun'
+
+  # Requires supporting ruby files with custom matchers and macros, etc,
+  # in spec/support/ and its subdirectories.
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+  RSpec.configure do |config|
+    # == Mock Framework
+    #
+    # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
+    #
+    # config.mock_with :mocha
+    # config.mock_with :flexmock
+    # config.mock_with :rr
+    config.mock_with :rspec
+
+    # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+    # If you're not using ActiveRecord, or you'd prefer not to run each of your
+    # examples within a transaction, remove the following line or assign false
+    # instead of true.
+config.use_transactional_fixtures = true
+
+    # If true, the base class of anonymous controllers will be inferred
+    # automatically. This will be the default behavior in future versions of
+    # rspec-rails.
+config.infer_base_class_for_anonymous_controllers = false
+  end
+end
+
+Spork.each_run do
+  # This code will be run each time you run your specs.
+end
+</code></pre>
+
+<h4>5、执行 <code>$ bundle exec spork --bootstrap</code></h4>
+
+<h4>6、以后只要运行 <code>$ guard</code> 就可以了</h4>
+]]></content>
+  </entry>
+  
+</feed>

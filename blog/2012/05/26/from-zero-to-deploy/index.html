@@ -9,7 +9,7 @@
   <meta name="author" content="Karma">
 
   
-  <meta name="description" content="去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyer开始新的生活。 搭建开发环境 1、 &hellip;">
+  <meta name="description" content="去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyist开始新的生活。 搭建开发环境 1、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,7 +96,7 @@
   </header>
 
 
-<div class="entry-content"><p>去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyer开始新的生活。</p>
+<div class="entry-content"><p>去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyist开始新的生活。</p>
 
 <hr />
 
@@ -104,7 +104,7 @@
 
 <h4>1、安装Git</h4>
 
-<p>通过<a href="http://code.google.com/p/git-osx-installer/">git-osx-installer</a>进行安装，异常的简单</p>
+<p>通过<a href="http://code.google.com/p/git-osx-installer/">git-osx-installer</a>进行安装，异常的简单，简单的使用教程可以看<a href="http://rogerdudler.github.com/git-guide/index.zh.html">这里</a>。</p>
 
 <h4>2、安装Xcode</h4>
 
@@ -128,7 +128,8 @@
 
 <pre><code>$ cd /usr/local
 $ git init
-$ git remote add origin git://github.com/mxcl/  $ homebrew.git
+$ git remote add origin git://github.com/mxcl/
+$ homebrew.git
 $ git pull origin master
 </code></pre>
 
@@ -203,7 +204,15 @@ $ [sudo] gem sources -a http://ruby.taobao.org
 <p>首先是设置用户名和邮箱</p>
 
 <pre><code>$ git config --global user.name "Your Name" $ git config --global user.email youremail@example.com
+
+$ git config --global color.diff auto
+$ git config --global color.status auto
+$ git config --global color.branch auto
+$ git config --global color.interactive auto
+$ git config --global color.ui auto
 </code></pre>
+
+<p>当然了也可以直接编辑<code>~/.gitconfig</code>，查看配置<code>$ git config --list</code></p>
 
 <p>为了方便起见，做一些快捷设置(别名而已)</p>
 
@@ -352,6 +361,10 @@ $ heroku keys:add
     <section class="first odd">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/lets-rspec/">Lets Rspec</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/05/28/bundler-and-gems/">[Rails Tutorial]Bundler and Gems</a>

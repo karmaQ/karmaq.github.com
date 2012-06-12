@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>[Rails Tutorial]Bundler and Gems - CilaCila</title>
+  <title>Lets Rspec - CilaCila</title>
   <meta name="author" content="Karma">
 
   
-  <meta name="description" content="rails 3 中新增加了一个Library管理工具 Bundler，它提供了好的工具来管理rails3项目依赖的gems。我们需要通过Gemfile来管理requires. 下面是Gemfile的一般写法： 每个Gemfile至少要依赖于一个以上的源，通过以下的形式进行声明： source : &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://karmaQ.github.com/blog/2012/05/28/bundler-and-gems">
+  <link rel="canonical" href="http://karmaQ.github.com/blog/2012/06/05/lets-rspec">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,7 +71,7 @@
   
   <header>
     
-      <h1 class="entry-title">[Rails Tutorial]Bundler and Gems</h1>
+      <h1 class="entry-title">Lets Rspec</h1>
     
     
       <p class="meta">
@@ -86,7 +87,7 @@
   
 
 
-<time datetime="2012-05-28T12:41:00+08:00" pubdate data-updated="true">May 28<span>th</span>, 2012</time>
+<time datetime="2012-06-05T11:16:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -96,100 +97,7 @@
   </header>
 
 
-<div class="entry-content"><p>rails 3 中新增加了一个Library管理工具 <a href="http://gembundler.com/">Bundler</a>，它提供了好的工具来管理rails3项目依赖的gems。我们需要通过Gemfile来管理requires.</p>
-
-<p>下面是Gemfile的一般写法：</p>
-
-<p>每个Gemfile至少要依赖于一个以上的源，通过以下的形式进行声明：</p>
-
-<pre><code>source :rubygems
-source "http://rubygems.org"
-source :rubyforge
-source "http://gems.rubyforge.org"
-source :gemcutter
-source "http://gemcutter.org"
-</code></pre>
-
-<p>当然的由于众所周知的墙的问题，使用上边的源可能会出现某些问题…我推荐使用淘宝提供的墙内源：</p>
-
-<pre><code>source 'http://ruby.taobao.org'
-</code></pre>
-
-<p>通过gem关键字来声明所依赖的Gems</p>
-
-<pre><code>gem "nokogiri"
-gem "rails", "3.0.0.beta3"
-gem "rack",  "&gt;=1.0"
-gem "thin",  "~&gt;1.1"
-</code></pre>
-
-<p>第一个参数是gem的名字，第二个参数可以指定版本，后边说明符的用法如下</p>
-
-<ul>
-<li>首先是类似于 3.0.0.beta3 这样直接指定版本号</li>
-<li>>= 1.0 表示大于1.0版本</li>
-<li>~> 比较有意思，我们用一个例子来说明 ~> 2.0.3 就相当于 >= 2.0.3 并且 &lt; 2.1. ~> 2.1 表示 >= 2.1 并且 &lt; 3.0. ~> 2.2.beta 将匹配类似与 2.2.beta.12 的版本号。</li>
-</ul>
-
-
-<p>关于Gems的详细介绍可以参见<a href="http://docs.rubygems.org/read/chapter/16#page74">这里</a></p>
-
-<ul>
-<li>Version 2.1.0 — 基版本</li>
-<li>Version 2.2.0 — 引入了一些新特性</li>
-<li>Version 2.2.1 — 修正一些Bugs</li>
-<li>Version 2.2.2 — 精简了代码</li>
-<li>Version 2.3.0 — 更多的新特性</li>
-<li>Version 3.0.0 — 重写了接口. 应用 2.x 的代码可能会出现兼容性问题。</li>
-</ul>
-
-
-<p>如果 require 的档名不同，可以加上 :require 参数</p>
-
-<pre><code>gem "rspec", :require =&gt; "spec"
-gem "sqlite3-ruby", "1.2.5", :require =&gt; "sqlite3"
-gem "gem-release", :require =&gt; false
-gem "redis", :require =&gt; ["redis/connection/hiredis", "redis"]
-</code></pre>
-
-<p>更神奇的是还可以用 Git 当做来源，甚至可以指定 branch, tag 或 ref，当然了默认的 branch 是 master 啦。</p>
-
-<pre><code>gem "nokogiri", :git =&gt; "git://github.com/tenderlove/nokogiri.git", :branch =&gt; "1.4" git "git://github.com/wycats/thor.git", :tag =&gt; "v0.13.4"
-gem "thor"
-</code></pre>
-
-<p>如果你是一个Gem的开发者，你还可以直接指定本地的gem哦</p>
-
-<pre><code>gem "nokogiri", :path =&gt; "~/sw/gems/nokogiri"
-</code></pre>
-
-<p>最后还要介绍一个比较重要的关键字 Group,可以指定某些Gem在特定的环境下被加载：</p>
-
-<pre><code>gem "wirble", :group =&gt; :development
-gem "ruby-debug", :group =&gt; [:development, :test]
-group :test do
-  gem "rspec"
-end
-</code></pre>
-
-<p>没有指定 Group 的Gems是属于 Default Group 的。
-通过 Group 我们可以更方便的执行 Bundle ，比如</p>
-
-<pre><code>$ bundle install --without test development
-</code></pre>
-
-<p>Group的功能还是很强大的，大多数特性咱也不太会用的说，<a href="http://yehudakatz.com/2010/05/09/the-how-and-why-of-bundler-groups/">这里</a>有老外写的某文章，可以看看啦。</p>
-
-<p>直接执行<code>$ bundle</code>可以列出常用的命令，比如</p>
-
-<pre><code>bundle check        # 检查目前缺少哪些Gems
-bundle init         # 在当前目录生成Gemfile
-bundle install      # 根据Gemfile安装环境到当前的系统
-</code></pre>
-
-<hr />
-
-<p>关于 RubyGems 我觉得没理由不看<a href="http://docs.rubygems.org/read/chapter/1">官方文档</a>的吧，各个方面都特别详细，有时间好好看看.</p>
+<div class="entry-content">
 </div>
 
 
@@ -212,21 +120,15 @@ bundle install      # 根据Gemfile安装环境到当前的系统
   
 
 
-<time datetime="2012-05-28T12:41:00+08:00" pubdate data-updated="true">May 28<span>th</span>, 2012</time>
+<time datetime="2012-06-05T11:16:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/bundler/'>Bundler</a>, <a class='category' href='/blog/categories/gems/'>Gems</a>, <a class='category' href='/blog/categories/rubyonrails/'>RubyonRails</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://karmaQ.github.com/blog/2012/05/28/bundler-and-gems/" data-via="geekarma" data-counturl="http://karmaQ.github.com/blog/2012/05/28/bundler-and-gems/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://karmaQ.github.com/blog/2012/06/05/lets-rspec/" data-via="geekarma" data-counturl="http://karmaQ.github.com/blog/2012/06/05/lets-rspec/" >Tweet</a>
   
   
   
@@ -235,10 +137,8 @@ bundle install      # 根据Gemfile安装环境到当前的系统
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/27/our-first-tests/" title="Previous Post: [Rails Tutorial] 自动化测试环境">&laquo; [Rails Tutorial] 自动化测试环境</a>
+        <a class="basic-alignment left" href="/blog/2012/05/28/bundler-and-gems/" title="Previous Post: [Rails Tutorial]Bundler and Gems">&laquo; [Rails Tutorial]Bundler and Gems</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/06/05/lets-rspec/" title="Next Post: Lets Rspec">Lets Rspec &raquo;</a>
       
     </p>
   </footer>
@@ -350,8 +250,8 @@ bundle install      # 根据Gemfile安装环境到当前的系统
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://karmaQ.github.com/blog/2012/05/28/bundler-and-gems/';
-        var disqus_url = 'http://karmaQ.github.com/blog/2012/05/28/bundler-and-gems/';
+        var disqus_identifier = 'http://karmaQ.github.com/blog/2012/06/05/lets-rspec/';
+        var disqus_url = 'http://karmaQ.github.com/blog/2012/06/05/lets-rspec/';
         var disqus_script = 'embed.js';
       
     (function () {

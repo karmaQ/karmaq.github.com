@@ -9,7 +9,8 @@
   <meta name="author" content="Karma">
 
   
-  <meta name="description" content="rails 3 中新增加了一个Library管理工具 Bundler，它提供了好的工具来管理rails3项目依赖的gems。我们需要通过Gemfile来管理requires. 下面是Gemfile的一般写法： 每个Gemfile至少要依赖于一个以上的源，通过以下的形式进行声明： source : &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +68,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/lets-rspec/">Lets Rspec</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T11:16:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/06/05/lets-rspec/#disqus_thread">Comments</a>
+        
+        
+          | 
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -398,8 +442,10 @@ liveload的<a href="http://help.livereload.com/kb/general-use/browser-extensions
 <h4>3、 初始化 Rspec，Guard， Spork</h4>
 
 <pre><code>$ rails g rspec:install
-$ bin/guard init rspec &amp;&amp; bin/guard init spork
+$ guard init
 </code></pre>
+
+<p><del>$ bin/guard init rspec &amp;&amp; bin/guard init spork</del></p>
 
 <p>修改 Guardfile</p>
 
@@ -506,6 +552,8 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 
 
 <h4>4、 修改 spechelper</h4>
+
+<p>如果你没有使用activerecorder 一定要按注释修改文件.</p>
 
 <figure class='code'><figcaption><span> (spec_helper.rb)</span> <a href='/downloads/code/our_first_tests/spec_helper.rb'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -654,7 +702,7 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
   </header>
 
 
-  <div class="entry-content"><p>去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyer开始新的生活。</p>
+  <div class="entry-content"><p>去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyist开始新的生活。</p>
 
 <hr />
 
@@ -662,7 +710,7 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 
 <h4>1、安装Git</h4>
 
-<p>通过<a href="http://code.google.com/p/git-osx-installer/">git-osx-installer</a>进行安装，异常的简单</p>
+<p>通过<a href="http://code.google.com/p/git-osx-installer/">git-osx-installer</a>进行安装，异常的简单，简单的使用教程可以看<a href="http://rogerdudler.github.com/git-guide/index.zh.html">这里</a>。</p>
 
 <h4>2、安装Xcode</h4>
 
@@ -686,7 +734,8 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 
 <pre><code>$ cd /usr/local
 $ git init
-$ git remote add origin git://github.com/mxcl/  $ homebrew.git
+$ git remote add origin git://github.com/mxcl/
+$ homebrew.git
 $ git pull origin master
 </code></pre>
 
@@ -761,7 +810,15 @@ $ [sudo] gem sources -a http://ruby.taobao.org
 <p>首先是设置用户名和邮箱</p>
 
 <pre><code>$ git config --global user.name "Your Name" $ git config --global user.email youremail@example.com
+
+$ git config --global color.diff auto
+$ git config --global color.status auto
+$ git config --global color.branch auto
+$ git config --global color.interactive auto
+$ git config --global color.ui auto
 </code></pre>
+
+<p>当然了也可以直接编辑<code>~/.gitconfig</code>，查看配置<code>$ git config --list</code></p>
 
 <p>为了方便起见，做一些快捷设置(别名而已)</p>
 
@@ -934,6 +991,10 @@ end
     <section class="first odd">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/lets-rspec/">Lets Rspec</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/05/28/bundler-and-gems/">[Rails Tutorial]Bundler and Gems</a>

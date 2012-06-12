@@ -243,8 +243,10 @@ liveload的<a href="http://help.livereload.com/kb/general-use/browser-extensions
 <h4>3、 初始化 Rspec，Guard， Spork</h4>
 
 <pre><code>$ rails g rspec:install
-$ bin/guard init rspec &amp;&amp; bin/guard init spork
+$ guard init
 </code></pre>
+
+<p><del>$ bin/guard init rspec &amp;&amp; bin/guard init spork</del></p>
 
 <p>修改 Guardfile</p>
 
@@ -351,6 +353,8 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 
 
 <h4>4、 修改 spechelper</h4>
+
+<p>如果你没有使用activerecorder 一定要按注释修改文件.</p>
 
 <figure class='code'><figcaption><span> (spec_helper.rb)</span> <a href='/downloads/code/our_first_tests/spec_helper.rb'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -518,6 +522,10 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
     <section class="first odd">
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/lets-rspec/">Lets Rspec</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/05/28/bundler-and-gems/">[Rails Tutorial]Bundler and Gems</a>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rspec | CilaCila]]></title>
   <link href="http://karmaQ.github.com/blog/categories/rspec/atom.xml" rel="self"/>
   <link href="http://karmaQ.github.com/"/>
-  <updated>2012-05-29T13:23:29+08:00</updated>
+  <updated>2012-06-13T05:50:26+08:00</updated>
   <id>http://karmaQ.github.com/</id>
   <author>
     <name><![CDATA[Karma]]></name>
@@ -164,8 +164,10 @@ liveload的<a href="http://help.livereload.com/kb/general-use/browser-extensions
 <h4>3、 初始化 Rspec，Guard， Spork</h4>
 
 <pre><code>$ rails g rspec:install
-$ bin/guard init rspec &amp;&amp; bin/guard init spork
+$ guard init
 </code></pre>
+
+<p><del>$ bin/guard init rspec &amp;&amp; bin/guard init spork</del></p>
 
 <p>修改 Guardfile</p>
 
@@ -271,6 +273,8 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h4>4、 修改 spechelper</h4>
+
+<p>如果你没有使用activerecorder 一定要按注释修改文件.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (spec_helper.rb)</span> <a href='/downloads/code/our_first_tests/spec_helper.rb'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

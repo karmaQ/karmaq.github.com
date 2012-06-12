@@ -4,7 +4,7 @@
   <title><![CDATA[Category: RubyonRails | CilaCila]]></title>
   <link href="http://karmaQ.github.com/blog/categories/rubyonrails/atom.xml" rel="self"/>
   <link href="http://karmaQ.github.com/"/>
-  <updated>2012-05-29T13:23:29+08:00</updated>
+  <updated>2012-06-13T05:50:26+08:00</updated>
   <id>http://karmaQ.github.com/</id>
   <author>
     <name><![CDATA[Karma]]></name>
@@ -266,8 +266,10 @@ liveload的<a href="http://help.livereload.com/kb/general-use/browser-extensions
 <h4>3、 初始化 Rspec，Guard， Spork</h4>
 
 <pre><code>$ rails g rspec:install
-$ bin/guard init rspec &amp;&amp; bin/guard init spork
+$ guard init
 </code></pre>
+
+<p><del>$ bin/guard init rspec &amp;&amp; bin/guard init spork</del></p>
 
 <p>修改 Guardfile</p>
 
@@ -373,6 +375,8 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h4>4、 修改 spechelper</h4>
+
+<p>如果你没有使用activerecorder 一定要按注释修改文件.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (spec_helper.rb)</span> <a href='/downloads/code/our_first_tests/spec_helper.rb'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -480,7 +484,7 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
     <link href="http://karmaQ.github.com/blog/2012/05/26/from-zero-to-deploy/"/>
     <updated>2012-05-26T00:01:00+08:00</updated>
     <id>http://karmaQ.github.com/blog/2012/05/26/from-zero-to-deploy</id>
-    <content type="html"><![CDATA[<p>去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyer开始新的生活。</p>
+    <content type="html"><![CDATA[<p>去年8月份开始接触RoR，之后虽然做过几个小的App但是并没有对Rails进行一个系统的学习，翻看之前的代码，简直惨不忍睹，并且带有浓重的C# Style，今天捧起“Ruby on Rails 3 Tutorial”开始从头学起，从今以后将作为一个Rubyist开始新的生活。</p>
 
 <hr />
 
@@ -488,7 +492,7 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 
 <h4>1、安装Git</h4>
 
-<p>通过<a href="http://code.google.com/p/git-osx-installer/">git-osx-installer</a>进行安装，异常的简单</p>
+<p>通过<a href="http://code.google.com/p/git-osx-installer/">git-osx-installer</a>进行安装，异常的简单，简单的使用教程可以看<a href="http://rogerdudler.github.com/git-guide/index.zh.html">这里</a>。</p>
 
 <h4>2、安装Xcode</h4>
 
@@ -512,7 +516,8 @@ $ bin/guard init rspec &amp;&amp; bin/guard init spork
 
 <pre><code>$ cd /usr/local
 $ git init
-$ git remote add origin git://github.com/mxcl/  $ homebrew.git
+$ git remote add origin git://github.com/mxcl/
+$ homebrew.git
 $ git pull origin master
 </code></pre>
 
@@ -587,7 +592,15 @@ $ [sudo] gem sources -a http://ruby.taobao.org
 <p>首先是设置用户名和邮箱</p>
 
 <pre><code>$ git config --global user.name "Your Name" $ git config --global user.email youremail@example.com
+
+$ git config --global color.diff auto
+$ git config --global color.status auto
+$ git config --global color.branch auto
+$ git config --global color.interactive auto
+$ git config --global color.ui auto
 </code></pre>
+
+<p>当然了也可以直接编辑<code>~/.gitconfig</code>，查看配置<code>$ git config --list</code></p>
 
 <p>为了方便起见，做一些快捷设置(别名而已)</p>
 

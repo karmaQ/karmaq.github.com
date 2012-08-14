@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | CilaCila]]></title>
+  <link href="http://karmaQ.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://karmaQ.github.com/"/>
+  <updated>2012-08-14T08:50:41+08:00</updated>
+  <id>http://karmaQ.github.com/</id>
+  <author>
+    <name><![CDATA[Karma]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Way]]></title>
+    <link href="http://karmaQ.github.com/blog/2012/06/26/ruby-way/"/>
+    <updated>2012-06-26T09:55:00+08:00</updated>
+    <id>http://karmaQ.github.com/blog/2012/06/26/ruby-way</id>
+    <content type="html"><![CDATA[<p>面试时发现了自己的很多不足,从今天起再次系统的学习一下Ruby</p>
+
+<h3>Ruby.new</h3>
+
+<hr />
+
+<ul>
+<li>类是状态和使用这些状态的方法的组合</li>
+<li>标准的构造函数成为new</li>
+<li>方法是通过向对象发送该消息来唤起调用的,消息包含方法名称以及方法可能需要的参数.(来自smalltalk)</li>
+<li>点(".")之前的东西称为receiver ,点后边的名字是调用的方法</li>
+<li>代码写在一行的话,可以用分号分句</li>
+<li>名称的第一个字符表示这个名称如何被使用: 局部变量,方法参数和方法名都以小写字母或者下划线开始,全局变量以美元符号为前缀,实例变量以@开始,类变量则以@@开始,最后类名称,模块名称都必须以大写祖母开始(@后不可直接跟数字).</li>
+<li>包含多个单词的实例变量名称在词与词之间用下划线连接,类变量则以很合大小写方式区分</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li>nil是一个对象,不表示任何东西</li>
+<li>nil和false代表false,其余的都是true(包括0)</li>
+<li>语句修饰符(satement modifiers)</li>
+<li>/patten/ 正则表达式也是对象</li>
+<li>=~ 匹配操作符,用于匹配字符串,他返回的是模式开始的位置,否则返回nil</li>
+<li>block只是在花括号或者do..end之间的一组代码(花括号的绑定更紧一些),一般来说单行的时候使用花括号,多行使用do/end</li>
+<li>把block放在含有方法调用的源码行的结尾处可以实现关联,参数在block之前,方法可以使用yield一次或者多次的调用(incoke)block.</li>
+<li>在block中||之间给出的参数名来自yield</li>
+</ul>
+
+
+<h3>Classes,Objects and Variables</h3>
+
+<ul>
+<li>initialize 方法把调用new时所使用的参数传入该方法</li>
+<li>每个对象都有对实例变量的一份拷贝</li>
+<li>Ruby中类永远都不是封闭的,可以打开并添加新的feature</li>
+<li>用 &lt; 表示继承 , super 回想当前对象的弗雷发送一个消息,要求它调用子类中的同名方法.</li>
+<li>当定义一个类而没有指定父类时,Ruby默认以object类作为其父类</li>
+<li>Ruby可以通过创建一个名字以等号接的方法来达成这一目标,这些方法可以作为赋值操作的目标</li>
+<li>attr_reader attr_writer</li>
+<li>属性就是一个方法,通过方法暴漏出来的外部形态我们称之为属性,其他的动作就是方法.</li>
+<li>类变量被所有的对象共享,并且只存在一份拷贝,类变量在使用前必须被初始化(通常就是赋值).</li>
+<li>类变量对类及其实例都是似有的,如果你想让他们都能够被外部世界访问,需要通过实例方法或者类方法.</li>
+<li>通过在方法名之前防止类名(.)来定义类方法,或者使用self.以及class &lt;&lt;self 来定义类方法</li>
+<li>通过private_class_method :mothed_name 来将方法私有化.</li>
+<li>public 可以被任何人调用,没有访问限制,方法默认是public的,protected方法只能被定义了该方法的类或其子类的对象所调用,整个家族均可访问,private方法不能被明确的接收者调用</li>
+<li>访问控制是在程序运行时动态判定的,只有当代码试图执行首先的方法时才会得到一个访问违规.</li>
+<li>使用pubilc,protected,private三个函数来为类或者模块定义方法的指定访问级别,也可以将方法名作为参数列表传入访问控制函数来设置他们的访问级别</li>
+<li>变量是对象的引用而不是对象,对象大多保存在堆中,并且由变量指向他们</li>
+<li>使用dup来避免创建别名</li>
+</ul>
+
+
+<h3>Containers,Blocks and Iterators</h3>
+
+<ul>
+<li></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Hello Github - CilaCila</title>
+  <title>Keep finders on their own model - CilaCila</title>
   <meta name="author" content="Karma">
 
   
-  <meta name="description" content="这是一篇测试的文章。 首先来测试一下Markdows的语法 这里是一段引用。 最近想要学习的东西 Ruby on Rails
-Rspec
-日语
-英语 XD 嘛 当然要测试一下代码的排版了 This is a code block. class CleanRoom def &hellip;">
+  <meta name="description" content="solution but needs your judgment class User &lt; ActiveRecord::Base has_many :memberships def find_recent_active_memberships memberships.only_active. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Rspec
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://karmaQ.github.com/blog/2012/05/25/hello-github">
+  <link rel="canonical" href="http://karmaQ.github.com/blog/2012/07/05/keep-finders-on-their-own-model">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -73,7 +70,7 @@ Rspec
   
   <header>
     
-      <h1 class="entry-title">Hello Github</h1>
+      <h1 class="entry-title">Keep Finders on Their Own Model</h1>
     
     
       <p class="meta">
@@ -89,7 +86,7 @@ Rspec
   
 
 
-<time datetime="2012-05-25T23:16:00+08:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+<time datetime="2012-07-05T16:12:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -99,37 +96,13 @@ Rspec
   </header>
 
 
-<div class="entry-content"><p>这是一篇测试的文章。</p>
+<div class="entry-content"><p><strong>solution but needs your judgment</strong></p>
 
-<h4>首先来测试一下Markdows的语法</h4>
-
-<blockquote><pre><code>这里是一段引用。
-</code></pre></blockquote>
-
-<h4>最近想要学习的东西</h4>
-
-<ul>
-<li>Ruby on Rails</li>
-<li>Rspec</li>
-<li>日语</li>
-<li>英语 XD</li>
-</ul>
-
-
-<hr />
-
-<h4>嘛 当然要测试一下代码的排版了</h4>
-
-<p>This is a code block.</p>
-
-<pre><code>class CleanRoom
-    def a_useful_method(x);x*2;end
-end 
+<pre><code>class User &lt; ActiveRecord::Base
+    has_many :memberships       def find_recent_active_memberships
+        memberships.only_active.order_by_activity.limit(5)      end end
+class Membership &lt; ActiveRecord::Base       belongs_to :user        scope :only_active, where(:active =&gt; true)      scope :order_by_activity, order('last_active_on DESC')  end
 </code></pre>
-
-<p>Use the <code>a_useful_method()</code> function.</p>
-
-<p>唉？居然是这样的么，语法还是很不熟悉啊，关于代码应该还会有更好的<em>解决方案</em>吧，明天再弄吧。</p>
 </div>
 
 
@@ -152,7 +125,7 @@ end
   
 
 
-<time datetime="2012-05-25T23:16:00+08:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+<time datetime="2012-07-05T16:12:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
       
 
 
@@ -160,7 +133,7 @@ end
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://karmaQ.github.com/blog/2012/05/25/hello-github/" data-via="geekarma" data-counturl="http://karmaQ.github.com/blog/2012/05/25/hello-github/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://karmaQ.github.com/blog/2012/07/05/keep-finders-on-their-own-model/" data-via="geekarma" data-counturl="http://karmaQ.github.com/blog/2012/07/05/keep-finders-on-their-own-model/" >Tweet</a>
   
   
   
@@ -169,8 +142,10 @@ end
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/07/05/put-all-find-calls-into-finders-on-the-model/" title="Previous Post: Put All find() calls into finders on the model">&laquo; Put All find() calls into finders on the model</a>
       
-        <a class="basic-alignment right" href="/blog/2012/05/26/from-zero-to-deploy/" title="Next Post: [Rails Tutorial] 从零开始搭建 Ruby on Rails 开发环境">[Rails Tutorial] 从零开始搭建 Ruby on Rails 开发环境 &raquo;</a>
+      
+        <a class="basic-alignment right" href="/blog/2012/08/03/code-complete-tips/" title="Next Post: [code complete]tips">[code complete]tips &raquo;</a>
       
     </p>
   </footer>
@@ -282,8 +257,8 @@ end
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://karmaQ.github.com/blog/2012/05/25/hello-github/';
-        var disqus_url = 'http://karmaQ.github.com/blog/2012/05/25/hello-github/';
+        var disqus_identifier = 'http://karmaQ.github.com/blog/2012/07/05/keep-finders-on-their-own-model/';
+        var disqus_url = 'http://karmaQ.github.com/blog/2012/07/05/keep-finders-on-their-own-model/';
         var disqus_script = 'embed.js';
       
     (function () {

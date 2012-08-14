@@ -21,11 +21,33 @@
         <lastmod>2012-06-05T11:16:25+08:00</lastmod>
     </url>
     <url>
+        <loc>http://karmaQ.github.com/blog/2012/06/26/ruby-way/</loc>
+        <lastmod>2012-06-26T20:02:45+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://karmaQ.github.com/blog/2012/06/27/follow-the-law-of-demeter/</loc>
+        <lastmod>2012-07-06T07:59:28+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://karmaQ.github.com/blog/2012/07/05/put-all-find-calls-into-finders-on-the-model/
+        </loc>
+        <lastmod>2012-07-05T15:33:25+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://karmaQ.github.com/blog/2012/07/05/keep-finders-on-their-own-model/</loc>
+        <lastmod>2012-07-05T16:22:52+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://karmaQ.github.com/blog/2012/08/03/code-complete-tips/</loc>
+        <lastmod>2012-08-06T09:44:26+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://karmaQ.github.com/blog/archives/</loc>
-        <lastmod>2012-06-13T05:49:33+08:00</lastmod>
+        <lastmod>2012-08-06T09:44:26+08:00</lastmod>
     </url>
     <url>
         <loc>http://karmaQ.github.com/</loc>
-        <lastmod>2012-06-13T05:49:33+08:00</lastmod>
+        <lastmod>2012-08-06T09:44:26+08:00</lastmod>
     </url>
 </urlset>

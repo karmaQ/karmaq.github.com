@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | CilaCila]]></title>
+  <link href="http://karmaQ.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://karmaQ.github.com/"/>
+  <updated>2012-08-14T08:50:41+08:00</updated>
+  <id>http://karmaQ.github.com/</id>
+  <author>
+    <name><![CDATA[Karma]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Put All find() calls into finders on the model]]></title>
+    <link href="http://karmaQ.github.com/blog/2012/07/05/put-all-find-calls-into-finders-on-the-model/"/>
+    <updated>2012-07-05T15:28:00+08:00</updated>
+    <id>http://karmaQ.github.com/blog/2012/07/05/put-all-find-calls-into-finders-on-the-model</id>
+    <content type="html"><![CDATA[<pre><code>&lt;ul&gt;        &lt;% User.find(:order =&gt; "last_name").each do |user| -%&gt;      &lt;li&gt;&lt;%= user.last_name %&gt; &lt;%= user.first_name %&gt;&lt;/li&gt; &lt;% end %&gt; &lt;/ul&gt;
+</code></pre>
+
+<p>===========></p>
+
+<pre><code>class UsersController &lt; ApplicationController def index     @users = User.order("last_name") end    end
+
+&lt;ul&gt;        &lt;% @users.each do |user| -%&gt;        &lt;li&gt;&lt;%= user.last_name %&gt; &lt;%= user.first_name %&gt;&lt;/li&gt; &lt;% end %&gt; &lt;/ul&gt;===========&gt;
+class UsersController &lt; ApplicationController       def index           @users = User.ordered       end end
+
+class User &lt; ActiveRecord::Base 
+    def self.ordered            order("last_name")      end end
+</code></pre>
+
+<p><strong>Solution</strong>        class User &lt; ActiveRecord::Base     scope :ordered, order("last_name")  end</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Follow the law of Demeter]]></title>
+    <link href="http://karmaQ.github.com/blog/2012/06/27/follow-the-law-of-demeter/"/>
+    <updated>2012-06-27T14:59:00+08:00</updated>
+    <id>http://karmaQ.github.com/blog/2012/06/27/follow-the-law-of-demeter</id>
+    <content type="html"><![CDATA[<h3>Follow the law of Demeter</h3>
+
+<pre><code>class Address &lt; ActiveRecord::Base 
+    belongs_to :customer    end
+class Customer &lt; ActiveRecord::Base         has_one :address        has_many :invoices  end
+class Invoice &lt; ActiveRecord::Base 
+    belongs_to :customer    end
+# Views
+
+&lt;%= @invoice.customer.name %&gt;   &lt;%= @invoice.customer.address.street %&gt; 
+&lt;%= @invoice.customer.address.city %&gt;
+&lt;%= @invoice.customer.address.state %&gt;
+&lt;%= @invoice.customer.address.zip_code %&gt;
+</code></pre>
+
+<p>Law of Demeter:
+lays out the concept that an object can call methods on a related object but that it should not reach through that object to call a method on a third. In Rails, this could be summed up as “use only one dot.”</p>
+
+<p>So we can write a method :</p>
+
+<pre><code>class Customer &lt; ActiveRecord::Base 
+    has_one :address        has_many :invoices      def street          address.street      end     def city 
+        address.city        end     def state           address.state       end
+end
+
+&lt;%= @invoice.customer_name %&gt;
+&lt;%= @invoice.customer_street %&gt;
+</code></pre>
+
+<p>In addition, your public interface on Invoice has been polluted by methods that arguably have nothing to do with the rest of your interface for invoices.</p>
+
+<p><strong>Solution</strong></p>
+
+<p>Fortunately, Ruby on Rails includes a function that addresses the first concern. This method is the class-level delegate method. This method provides a shortcut for indicating that one or more methods that will be created on your object are actually provided by a related object. Using this delegate method, you can rewrite your exam- ple like this:</p>
+
+<pre><code>class Customer &lt; ActiveRecord::Base 
+    has_one :address        has_many :invoices              delegate :street, :city, :state, :zip_code, :to =&gt; :address
+end
+class Invoice &lt; ActiveRecord::Base      belongs_to :customer        delegate :name,              :street,                :to =&gt; :customer,               :prefix =&gt; true
+end
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
